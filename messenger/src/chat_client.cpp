@@ -148,10 +148,7 @@ int main(int argc, char* argv[])
     char line[chat_message::max_body_length + 1];
     while (std::cin.getline(line, chat_message::max_body_length + 1))
     {
-      chat_message msg;
-      msg.body_length(std::strlen(line));
-      std::memcpy(msg.body(), line, msg.body_length());
-      msg.encode_header();
+      chat_message msg(line, std::strlen(line));
       c.write(msg);
     }
 
