@@ -5,10 +5,10 @@ file(GLOB_RECURSE SOURCES LIST_DIRECTORIES true *.h *.cpp)
 set(SOURCES ${SOURCES})
 
 add_executable(client_run chat_client.cpp chat_message.hpp)
-target_link_libraries(client_run pthread)
+target_link_libraries(client_run pthread stdc++fs)
 
 add_executable(server_run chat_server.cpp chat_message.hpp)
-target_link_libraries(server_run pthread)
+target_link_libraries(server_run pthread stdc++fs)
 
 add_library(${BINARY}_lib STATIC ${SOURCES})
 
